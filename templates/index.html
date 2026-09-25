@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CropPulse | Smart Farming Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="brand" onclick="switchPage('home')">
+
+        <div class="brand-icon">
+            🌱
+        </div>
+
+        <div>
+            <h1>CropPulse</h1>
+            <p>Smart Farming • Better Decisions</p>
+        </div>
+
+    </div>
+
+
+    <nav class="nav-links">
+
+        <button onclick="switchPage('home')" class="nav-btn active">
+            🏠 Home
+        </button>
+
+        <button onclick="switchPage('crop')" class="nav-btn">
+            🌾 Crop Check
+        </button>
+
+        <button onclick="switchPage('weather')" class="nav-btn">
+            🌦️ Weather
+        </button>
+
+        <button onclick="switchPage('ai')" class="nav-btn">
+            🤖 AI Assistant
+        </button>
+
+        <button onclick="switchPage('dashboard')" class="nav-btn">
+            📊 Dashboard
+        </button>
+
+        <button onclick="switchPage('about')" class="nav-btn">
+            ℹ️ About
+        </button>
+
+    </nav>
+
+
+    <div class="header-status">
+        🟢 Online
+    </div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+
+<!-- ================= HOME PAGE ================= -->
+
+<section id="homePage" class="page active-page">
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                🌾 SMART AGRICULTURE
+            </span>
+
+            <h2>
+                Understand your crop.
+                <br>
+                <span>Grow with confidence.</span>
+            </h2>
+
+            <p>
+                CropPulse combines crop information,
+                live weather conditions and AI-powered
+                guidance to help farmers make better
+                decisions.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button
+                    class="primary-button"
+                    onclick="switchPage('crop')">
+
+                    🌱 Check My Crop
+
+                </button>
+
+                <button
+                    class="secondary-button"
+                    onclick="switchPage('ai')">
+
+                    🤖 Ask AI
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="plant-circle">
+                🌾
+            </div>
+
+            <div class="floating-card weather-float">
+
+                <span>🌤️</span>
+
+                <div>
+                    <strong>Live Weather</strong>
+                    <small>Real-time conditions</small>
+                </div>
+
+            </div>
+
+
+            <div class="floating-card risk-float">
+
+                <span>🛡️</span>
+
+                <div>
+                    <strong>Crop Risk</strong>
+                    <small>Smart monitoring</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🌦️
+            </div>
+
+            <h3>Live Weather</h3>
+
+            <p>
+                Get current temperature,
+                humidity and rainfall conditions.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🌾
+            </div>
+
+            <h3>Crop Risk</h3>
+
+            <p>
+                Identify possible crop risks
+                using current conditions.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🤖
+            </div>
+
+            <h3>AI Guidance</h3>
+
+            <p>
+                Ask CropPulse AI questions
+                about your crops and soil.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUICK ACTIONS -->
+
+    <section class="quick-section">
+
+        <div class="section-title">
+
+            <span>GET STARTED</span>
+
+            <h2>
+                Your farming toolkit
+            </h2>
+
+            <p>
+                Everything you need in one place.
+            </p>
+
+        </div>
+
+
+        <div class="quick-grid">
+
+            <div class="quick-card"
+                 onclick="switchPage('crop')">
+
+                <div class="quick-icon">🌱</div>
+
+                <h3>Analyze My Crop</h3>
+
+                <p>
+                    Check crop conditions,
+                    weather and potential risks.
+                </p>
+
+                <span class="card-link">
+                    Start analysis →
+                </span>
+
+            </div>
+
+
+            <div class="quick-card"
+                 onclick="switchPage('weather')">
+
+                <div class="quick-icon">🌦️</div>
+
+                <h3>Check Weather</h3>
+
+                <p>
+                    Get live weather information
+                    for your location.
+                </p>
+
+                <span class="card-link">
+                    View weather →
+                </span>
+
+            </div>
+
+
+            <div class="quick-card"
+                 onclick="switchPage('ai')">
+
+                <div class="quick-icon">🤖</div>
+
+                <h3>Ask CropPulse AI</h3>
+
+                <p>
+                    Get simple answers to
+                    farming-related questions.
+                </p>
+
+                <span class="card-link">
+                    Ask AI →
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- ================= CROP CHECK PAGE ================= -->
+
+<section id="cropPage" class="page">
+
+    <div class="page-heading">
+
+        <span>🌾 CROP ANALYSIS</span>
+
+        <h2>
+            Check your crop
+        </h2>
+
+        <p>
+            Enter your field details and let CropPulse
+            analyze the current conditions.
+        </p>
+
+    </div>
+
+
+    <section
+        id="cropForm"
+        class="form-section">
+
+        <div class="step-badge">
+            STEP 1
+        </div>
+
+        <h2>
+            🌾 Tell Us About Your Crop
+        </h2>
+
+        <p class="form-intro">
+            Enter a few details about your field
+            to begin the analysis.
+        </p>
+
+
+        <form onsubmit="analyzeCrop(event)">
+
+
+            <div class="form-grid">
+
+
+                <!-- CROP -->
+
+                <div class="form-group">
+
+                    <label for="crop">
+                        🌾 Crop
+                    </label>
+
+                    <select id="crop" required>
+
+                        <option value="">
+                            Select your crop
+                        </option>
+
+                        <option value="Wheat">
+                            Wheat
+                        </option>
+
+                        <option value="Rice">
+                            Rice
+                        </option>
+
+                        <option value="Maize">
+                            Maize
+                        </option>
+
+                        <option value="Potato">
+                            Potato
+                        </option>
+
+                        <option value="Tomato">
+                            Tomato
+                        </option>
+
+                        <option value="Cotton">
+                            Cotton
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- SOIL -->
+
+                <div class="form-group">
+
+                    <label for="soil">
+                        🪨 Soil Type
+                    </label>
+
+                    <select id="soil" required>
+
+                        <option value="">
+                            Select soil type
+                        </option>
+
+                        <option value="Loamy">
+                            Loamy
+                        </option>
+
+                        <option value="Clay">
+                            Clay
+                        </option>
+
+                        <option value="Sandy">
+                            Sandy
+                        </option>
+
+                        <option value="Silty">
+                            Silty
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="form-group">
+
+                    <label for="location">
+                        📍 Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Enter city or village"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- GROWTH STAGE -->
+
+                <div class="form-group">
+
+                    <label for="stage">
+                        🌱 Growth Stage
+                    </label>
+
+                    <select id="stage" required>
+
+                        <option value="">
+                            Select growth stage
+                        </option>
+
+                        <option value="Seedling">
+                            🌱 Seedling
+                        </option>
+
+                        <option value="Vegetative">
+                            🌿 Vegetative
+                        </option>
+
+                        <option value="Flowering">
+                            🌸 Flowering
+                        </option>
+
+                        <option value="Maturity">
+                            🌾 Maturity
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- WEATHER -->
+
+            <div class="weather-section">
+
+                <div class="weather-title">
+
+                    <div>
+
+                        <span>
+                            STEP 2
+                        </span>
+
+                        <h3>
+                            🌦️ Get Live Weather
+                        </h3>
+
+                    </div>
+
+                    <div class="live-badge">
+                        ● LIVE
+                    </div>
+
+                </div>
+
+                <p>
+                    We'll use your location to retrieve
+                    current weather conditions.
+                </p>
+
+
+                <button
+                    type="button"
+                    class="weather-button"
+                    onclick="getWeather()">
+
+                    🌤️ Get Live Weather
+
+                </button>
+
+
+                <div
+                    id="weatherResult"
+                    class="weather-result">
+                </div>
+
+
+                <input
+                    type="hidden"
+                    id="temperature">
+
+                <input
+                    type="hidden"
+                    id="humidity">
+
+                <input
+                    type="hidden"
+                    id="rainfall">
+
+            </div>
+
+
+            <!-- ANALYZE -->
+
+            <button
+                type="submit"
+                class="analyze-button">
+
+                🔍 Analyze My Crop
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- RESULT -->
+
+    <section
+        id="result"
+        class="result-section">
+    </section>
+
+</section>
+
+
+<!-- ================= WEATHER PAGE ================= -->
+
+<section id="weatherPage" class="page">
+
+    <div class="page-heading">
+
+        <span>🌦️ WEATHER CENTER</span>
+
+        <h2>
+            Live weather
+        </h2>
+
+        <p>
+            Check current weather conditions
+            for your farming location.
+        </p>
+
+    </div>
+
+
+    <div class="weather-dashboard">
+
+        <div class="weather-main-card">
+
+            <div class="weather-big-icon">
+                🌤️
+            </div>
+
+            <h2>
+                Live Weather
+            </h2>
+
+            <p>
+                Enter your location below to
+                retrieve current conditions.
+            </p>
+
+
+            <div class="weather-search">
+
+                <input
+                    type="text"
+                    id="weatherLocation"
+                    placeholder="Enter city or village">
+
+                <button
+                    onclick="getWeatherFromPage()">
+
+                    Search 🌦️
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="pageWeatherResult"
+                class="page-weather-result">
+            </div>
+
+        </div>
+
+
+        <div class="weather-info-grid">
+
+            <div class="weather-info-card">
+                <span>🌡️</span>
+                <h3>Temperature</h3>
+                <p>Live temperature data</p>
+            </div>
+
+            <div class="weather-info-card">
+                <span>💧</span>
+                <h3>Humidity</h3>
+                <p>Current humidity levels</p>
+            </div>
+
+            <div class="weather-info-card">
+                <span>🌧️</span>
+                <h3>Rainfall</h3>
+                <p>Current precipitation</p>
+            </div>
+
+            <div class="weather-info-card">
+                <span>🌾</span>
+                <h3>Crop Impact</h3>
+                <p>Understand weather effects</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= AI PAGE ================= -->
+
+<section id="aiPage" class="page">
+
+    <div class="page-heading">
+
+        <span>🤖 CROPPULSE AI</span>
+
+        <h2>
+            Your farming assistant
+        </h2>
+
+        <p>
+            Ask questions about crops, soil,
+            irrigation, pests and farming.
+        </p>
+
+    </div>
+
+
+    <section class="chat-section">
+
+        <div class="chat-header">
+
+            <div class="chat-icon">
+                🤖
+            </div>
+
+            <div>
+
+                <h2>
+                    CropPulse AI
+                </h2>
+
+                <p>
+                    Smart answers for your farm.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="chatMessages"
+            class="chat-messages">
+
+            <div class="chat-message ai-message">
+
+                <strong>
+                    🌱 CropPulse AI
+                </strong>
+
+                <p>
+                    Hi! Ask me anything about your
+                    crop, soil, irrigation, pests,
+                    diseases or crop care.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <form
+            id="chatForm"
+            onsubmit="sendChatMessage(event)">
+
+            <div class="chat-input-container">
+
+                <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Ask CropPulse something..."
+                    autocomplete="off"
+                    required>
+
+                <button type="submit">
+                    Send 🌱
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <div class="suggestion-grid">
+
+        <button onclick="askSuggestion('How often should I water wheat?')">
+            💧 Wheat irrigation
+        </button>
+
+        <button onclick="askSuggestion('What are common diseases in tomato crops?')">
+            🍅 Tomato diseases
+        </button>
+
+        <button onclick="askSuggestion('Which soil is best for maize?')">
+            🌽 Maize soil
+        </button>
+
+        <button onclick="askSuggestion('How can I protect crops from heavy rain?')">
+            🌧️ Heavy rain
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DASHBOARD PAGE ================= -->
+
+<section id="dashboardPage" class="page">
+
+    <div class="page-heading">
+
+        <span>📊 FARM DASHBOARD</span>
+
+        <h2>
+            Your farming overview
+        </h2>
+
+        <p>
+            A quick view of your CropPulse tools
+            and latest analysis.
+        </p>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                🌾
+            </div>
+
+            <div>
+
+                <span>
+                    CROP
+                </span>
+
+                <h3 id="dashboardCrop">
+                    Not analyzed yet
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                🌡️
+            </div>
+
+            <div>
+
+                <span>
+                    TEMPERATURE
+                </span>
+
+                <h3 id="dashboardTemp">
+                    —
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                🛡️
+            </div>
+
+            <div>
+
+                <span>
+                    RISK LEVEL
+                </span>
+
+                <h3 id="dashboardRisk">
+                    —
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                📍
+            </div>
+
+            <div>
+
+                <span>
+                    LOCATION
+                </span>
+
+                <h3 id="dashboardLocation">
+                    —
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-message">
+
+        <div class="dashboard-message-icon">
+            🌱
+        </div>
+
+        <div>
+
+            <h3>
+                Ready to analyze your farm?
+            </h3>
+
+            <p>
+                Start a crop analysis to populate
+                your farming dashboard.
+            </p>
+
+            <button onclick="switchPage('crop')">
+                Start Crop Check →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT PAGE ================= -->
+
+<section id="aboutPage" class="page">
+
+    <div class="page-heading">
+
+        <span>ℹ️ ABOUT CROPPULSE</span>
+
+        <h2>
+            Technology for smarter farming
+        </h2>
+
+        <p>
+            CropPulse is designed to make useful
+            farming information easier to understand.
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-card large">
+
+            <div class="about-icon">
+                🌱
+            </div>
+
+            <h2>
+                What is CropPulse?
+            </h2>
+
+            <p>
+                CropPulse is a smart farming assistant
+                that combines crop information, live
+                weather data and artificial intelligence
+                to provide practical farming guidance.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                🌦️
+            </div>
+
+            <h3>
+                Live Weather
+            </h3>
+
+            <p>
+                Weather information helps farmers
+                understand current environmental
+                conditions.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                🤖
+            </div>
+
+            <h3>
+                AI Assistance
+            </h3>
+
+            <p>
+                CropPulse AI can answer questions
+                about crops, soil, pests and
+                general crop care.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Risk Awareness
+            </h3>
+
+            <p>
+                CropPulse highlights possible
+                risks based on the conditions
+                entered by the user.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                💡
+            </div>
+
+            <h3>
+                Simple Guidance
+            </h3>
+
+            <p>
+                Information is presented in a
+                simple and understandable format.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div>
+
+        <strong>
+            🌱 CropPulse
+        </strong>
+
+        <p>
+            Smart farming insights for better decisions.
+        </p>
+
+    </div>
+
+    <div>
+
+        <p>
+            Built with Flask • Gemini AI • Open-Meteo
+        </p>
+
+        <p class="footer-disclaimer">
+            CropPulse provides general guidance for
+            demonstration purposes.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
